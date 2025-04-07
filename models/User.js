@@ -3,11 +3,10 @@ const {Model, DataTypes} = require('sequelize')
 
 class User extends Model {}
 
-User.init(
-    {
-        // Model attributes are defined here
+User.init({
         username: {
             type: DataTypes.STRING,
+            primaryKey: true,
             allowNull: false,
         },
         password: {
@@ -16,9 +15,9 @@ User.init(
         },
     },
     {
-        sequelize,
-        modelName: 'User',
-    },
+    sequelize,
+    modelName: 'User',
+    }
 );
 
 module.exports = User;

@@ -4,9 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session')
+const sequelize = require('./db')
 
 var indexRouter = require('./routes/index');
 var coursesRouter = require('./routes/courses');
+const User = require('./models/User');
 
 var app = express();
 
@@ -47,5 +49,19 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+async function setup() {
+  const subu = await User.create({username: "Subu", password: "1234"});
+  console.log("Subu instance created");
+}
+
+// forces a creation of the db if it doesn't exist
+// You dont want to do that in production.
+sequelize.sync({force: true}).then(()=>{
+  console.log("Sequelize Sync Completed...");
+  setup().then(()=> console.log("User setup complete"));
+})
+
+
 
 module.exports = app;
