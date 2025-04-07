@@ -42,4 +42,4 @@ Course.init({
     }
 );
 
-module.exports = User;
+module.exports = Course;

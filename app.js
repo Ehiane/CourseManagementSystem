@@ -9,6 +9,7 @@ const sequelize = require('./db')
 var indexRouter = require('./routes/index');
 var coursesRouter = require('./routes/courses');
 const User = require('./models/User');
+const Course = require('./models/Course');
 
 var app = express();
 
@@ -53,6 +54,14 @@ app.use(function(err, req, res, next) {
 async function setup() {
   const subu = await User.create({username: "subu", password: "1234"});
   console.log("Subu instance created");
+  const webdev = await Course.create(
+    {
+      courseid: "CPTS 489",
+      coursename: "Web Development",
+      semester: "Spring",
+      coursedesc: "Introduction to Web Development",
+      enrollnum: 80
+    })
 }
 
 // forces a creation of the db if it doesn't exist
