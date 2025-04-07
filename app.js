@@ -51,7 +51,7 @@ app.use(function(err, req, res, next) {
 });
 
 async function setup() {
-  const subu = await User.create({username: "Subu", password: "1234"});
+  const subu = await User.create({username: "subu", password: "1234"});
   console.log("Subu instance created");
 }
 

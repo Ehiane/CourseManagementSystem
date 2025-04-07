@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/login', async function(req, res, next) {
-  console.log(req.body.username + " - " + req.body.password)
+  // console.log(req.body.username + " - " + req.body.password)
   const user = await User.findUser(req.body.username, req.body.password);
 
   if(user !== null){
@@ -17,6 +17,7 @@ router.post('/login', async function(req, res, next) {
     res.redirect("/courses"); // redirects to the courses page
   }
   else {
+    console.log(user)
     res.redirect("/?msg=fail") // redirect to the root page with a fail message
   }
 });
