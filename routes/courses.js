@@ -16,7 +16,7 @@ router.use(sessionChecker)
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   // console.log(req.session.user)
-  res.send('respond with a resource');
+  res.render('courses');
 });
 
 module.exports = router;
