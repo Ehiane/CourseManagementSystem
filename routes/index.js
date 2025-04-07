@@ -17,7 +17,6 @@ router.post('/login', async function(req, res, next) {
     res.redirect("/courses"); // redirects to the courses page
   }
   else {
-    console.log(user)
     res.redirect("/?msg=fail") // redirect to the root page with a fail message
   }
 });

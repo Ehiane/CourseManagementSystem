@@ -5,7 +5,6 @@ class User extends Model {
     static async findUser(username, password){
         try {
             const user = await User.findByPk(username)
-            console.log("User from ORM:",user)
             if (user && user.password === password){
                 return user
             } 
