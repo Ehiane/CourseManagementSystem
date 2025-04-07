@@ -19,4 +19,10 @@ router.get('/', function(req, res, next) {
   res.render('courses');
 });
 
+router.post('/create', function(req,res,next){
+  console.log(req.body.courseid)
+  console.log(req.body.coursename)
+  res.redirect('/courses')
+});
+
 module.exports = router;
