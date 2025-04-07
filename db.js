@@ -26,3 +26,5 @@ async function getRowTest(){
 }
 
 getRowTest().then(() => console.log("Query Completed"))
+
+module.exports = {getRow}
